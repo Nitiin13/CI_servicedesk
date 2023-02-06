@@ -7,51 +7,67 @@
         $this->load->helper('url');
         $this->load->helper('form');
          $this->load->helper('Array');
-        $this->load->helper('security');  
+        $this->load->helper('security'); 
+        // $this->load->library('output');
         //$this->load->library('form_validation'); 
         $this->load->library('session');
-        }
-    public function index(){
-        $isloggedIn=$this->session->userdata('isloggedIn');
+         $this->output->set_header('Last-Modified:'.gmdate("D, d M Y H:i:s").' GMT');
+        $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate');
+           $this->output->set_header('Cache-Control: post-check=0, pre-check=0',false);
+        $this->output->set_header('Pragma:no-cache');
+        
+      
+    }
+    public function check_Sess()
+    {
+         $isloggedIn=$this->session->userdata('isloggedIn');
         // var_dump($isloggedIn);
-        if($isloggedIn)
+        if(!$isloggedIn)
         {
-             redirect('service/ticket_portal','refresh');
+             redirect('service/');
         }
-        else
-        {
+        
+      }
+    public function index(){
+      // $this->check_Sess();
         $this->load->view('templates/header');
         $this->load->view('service/login');
         $this->load->view('templates/footer');
-    }
-    }
+    }    
+
+    
     public function ticket_portal()
-    {
+    {  // th$is->ticket_portal();
+         $this->check_Sess();
         $id=$this->session->userdata('ses_id');
         $data['tickets']=$this->service_model->get_ticket($id);
         $this->load->view('templates/header');
         $this->load->view('service/ticket_portal',$data);
         $this->load->view('templates/footer');
     
+    
     }
-    public function ticket_download()
-    {
-        $
-         // load download helder
-    $this->load->helper('download');
+    // public function ticket_download()
+    // {
+        
+    //      // load download helder
+    // $this->load->helper('download');
 
-    // read file contents
-    $data = file_get_contents(base_url('/uploads/'.$filename));
-    force_download($filename, $data);
-    }
+    // // read file contents
+    // $data = file_get_contents(base_url('/uploads/'.$filename));
+    // force_download($filename, $data);
+    // }
     public function logout()
     {
+        $this->session->unset_userdata('isloggedIn');
         $this->session->unset_userdata();
+        // $this->output->clear_all_cache(); 
         $this->session->sess_destroy();
         redirect('service/','refresh');
     }
     public function register()
     {
+
         $this->load->view('templates/header');
         $this->load->view('service/register');
         $this->load->view('templates/footer');  
@@ -88,7 +104,7 @@
             }
             else
             {
-                    redirect('service/');
+                    redirect('service/','refresh');
             }
         }
        
@@ -121,6 +137,7 @@
     }
     public function admin_portal()
     {
+            $this->check_Sess();
         $data['all_tickets']=$this->service_model->get_ticket();
         
          $this->load->view('templates/header');
