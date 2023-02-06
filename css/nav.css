@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   background-color:#211d7f;
+   height:50px;
+   align-items: center;
+   width: 100%;
+}
+.navbar a{
+   padding: 5px 10px 5px 10px;
+   color:#ffffff;
+   text-decoration: none;
+   font-family: 'DM Serif Display', serif;
+   font-size:large;
+}
+.navbar a:hover{
+/*   background-color: #ffffff;*/
+   
+   border-bottom: 2px solid #ffffff;
+}
+@media only screen and (max-width:780px)
+{
+   .navbar{
+      flex-direction: column;
+      height: fit-content;
+   }
+}
