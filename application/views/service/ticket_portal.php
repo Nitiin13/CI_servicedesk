@@ -14,7 +14,7 @@
                         <textarea id="ticket-detail"   placeholder="Description" name="ticket-detail"   rows="1"cols="30"maxlength="255"></textarea>
                         <label for="#myfile">Attachment</label>
                         <input type="file" id="attachment" name="attachment">
-                        <button id="btn" name="form-submit" onclick='myfunction'>Submit</button>
+                        <button id="btn" name="form-submit" >Submit</button>
            </form>
 </div>
 
