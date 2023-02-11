@@ -1,23 +1,22 @@
  <div class='container'>
  <div class="main-div">
+<div class="ticket_portal">
             <h2>Add a Ticket</h2>
-            <!--  -->
-            <?php echo validation_errors();?>
             <?php echo form_open_multipart('service/ticket_add');?>
-            <!--  <form id="ticketform" onsubmit="return myfunction()" autocomplete="off"method="post" enctype="multipart/form-data" action="? -->
             <?php if($this->session->flashdata('ticket-error')){?>
 <p style="color:red"><?php  echo $this->session->flashdata('ticket-error');?></p>  
 <?php } ?>     
-            <label for="#title">Title</label>
+ <?php echo form_error('ticket-title');?>
                         <input type="text" id="title" placeholder="Title "name="ticket-title"  /><br/>
-                        <label for="#desc">Description</label>
+                         <?php echo form_error('ticket-detail');?>
+                        <!-- <label for="#desc">Description</label> -->
                         <textarea id="ticket-detail"   placeholder="Description" name="ticket-detail"   rows="1"cols="30"maxlength="255"></textarea>
                         <label for="#myfile">Attachment</label>
                         <input type="file" id="attachment" name="attachment">
                         <button id="btn" name="form-submit" >Submit</button>
-           </form>
 </div>
-
+</div>
+<div class="tabular-data">
    <table class="styled-table1">
     <thead>
         <tr>
@@ -53,6 +52,7 @@
 </table>
 </div>
 </div>
+
 <!-- <div id="modal">
             <div class="modal-content">
                 <h1>Here's What we Got!</h1> -->

@@ -5,7 +5,7 @@
     <div class="left_part"><img src="<?php echo base_url()?>assets/register.png">
     </div>
     <div class="register-box">
-        <h3>Lets SignUp Quickly</h3>
+        <h3>Lets SignUp Quickly!</h3>
          <?php if($this->session->flashdata('reg-failed')){?>
 <p style="color:green"><?php  echo $this->session->flashdata('reg-failed');?></p>  
 <?php } ?>

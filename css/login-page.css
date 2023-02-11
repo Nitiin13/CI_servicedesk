@@ -23,18 +23,22 @@ body{
    height: 65px;
    width: 100%;
    padding: 12px 14px;
-   grid-column:1/6;
+   grid-column:1/7;
    justify-content: space-around;
    background-color:#f8f8f8;
 
 }
 .container .main1-div{
-    grid-column-start: 1;
+    grid-column-start: 2;
     grid-column-end: 6;
     gap:10px;
+    padding:25px 30px;
     width: 100%;
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+/*    border: 1px solid green;*/
+/*    grid-template-columns: auto auto auto;*/
     
 }
 .search-container{
@@ -74,29 +78,27 @@ body{
 
 }
 .login-box{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row: 6;
     display: flex;
     position: relative;
-    min-width: 400px;
-    margin-left: 70px;
-
+    min-width: 450px;
+    margin-left: 80px;
 /*    border:2px solid black;*/
     border-radius:10px;
+
     flex-direction: column;
     background-color:#ffffff;
     justify-content:center;
-    align-content: center;
+    align-content: flex-end;
     align-items: flex-end;
     padding: 10px;
- 
+    
 }
 
 .login-container
 {   
+
 /*    border: 1px solid red;*/
-    width: 75%;
+    width: 100%;
     min-height:auto;
     display: flex;
     flex-direction: column;
@@ -156,18 +158,21 @@ min-height: 40px !important;
         background-color:#8c8cf0;
 }
 .left_container{
-     width:80%;
-     display: block;
-    grid-row-start: 6;
+     width:50%;
+     display: flex;
+   /* grid-row-start: 6;
 /*    border:1px solid black;*/
-    grid-column-start: 4
+/*    grid-column-start: 4*/
+/*    border:3px solid black;*/
+    justify-content: flex-start;
+
 
 }
 .side-container{
     display: flex;
     flex-direction: column;
 /*   border: 2px solid red;*/
-   width:83%;
+   width:68%;
 }
 .side-container .side-1{
     display:flex;
@@ -204,11 +209,23 @@ min-height: 40px !important;
 
     color:green;
 }
-@media only screen and (max-width:600px)
+@media only screen and (max-width:780px)
 {
     .login-box
     {
-        width:100%;
+        width:50%
+    }
+    .container .main1-div{
+        flex-direction: column;
+        align-content: center;
+
+    }
+    .search-container{
+        justify-content: center;
+    }
+    .search-container input[type="search"]{
+        width: 60%;
+
     }
     .login-container input[type="email"]{
         height: 30px;
@@ -217,8 +234,18 @@ min-height: 40px !important;
     {
         height:30px;
     }
+    .search-container span{
+        display: none;
+    }
     .login-container #lgn-button
     {
-        width:35%;
+        width:15%;
+        align-self: center;
     }
+    .left_container{
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+    }
+    .
 }

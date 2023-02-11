@@ -3,7 +3,7 @@
     <p>Home / SignIn</p>
     <div class='search-container'>
 
-    <input type="search" name="nthing">
+    <input type="search" name="nthing" placeholder="Search Articles">
     <span <i class="fa fa-search fa-lg"></span>
 
 </div>
@@ -34,21 +34,21 @@
         <div class="side-1">
             <img id="user"src="<?php echo base_url()?>assets/user-profile.png">
             <div class='inner-details'>
-            <span>New User?<a href="#">SignUp</a></span>
+            <span>New User?<a href="#"> SignUp</a></span>
             <p>Create an account to submit tickets, read articles and engage in our community.</p>  
             </div>
         </div>
         <div class="side-1">
             <img id="user"src="<?php echo base_url()?>assets/lock.png">
             <div class='inner-details'>
-            <span>Forget Password?<a href="#">Reset</a></span>
+            <span>Forget Password?<a href="#"> Reset</a></span>
             <p>We will send a password reset link to your email address.</p>  
             </div>
         </div>
         <div class="side-1">
             <img id="user"src="<?php echo base_url()?>assets/agent.png">
             <div class='inner-details'>
-            <span>Are you an Agent?<a href="#">Login Here</a></span>
+            <span>Are you an Agent?<a href="#"> Login Here</a></span>
             <p>You will be taken to the agent interface.</p>  
             </div>
         </div>
