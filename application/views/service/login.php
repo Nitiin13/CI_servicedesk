@@ -14,10 +14,10 @@
         <span class="span1">Already a member?</span>
         <span class="span2">Sign In</span>
                     <?php if($this->session->flashdata('error')){?>
-            <p style="color:red"><?php  echo $this->session->flashdata('error');?></p>  
+            <p style="color:red !important;"><?php  echo $this->session->flashdata('error');?></p>  
             <?php } ?>
               <?php if($this->session->flashdata('reg-success')){?>
-            <p style="color:green"><?php  echo $this->session->flashdata('reg-success');?></p>  
+            <p  style="color:green !important;"><?php  echo $this->session->flashdata('reg-success');?></p>
             <?php } ?>
                     <?php //echo validation_errors();?> 
                         <?php echo form_open('service/authenticate')?>
@@ -32,21 +32,21 @@
 <div class="left_container">
    <div class="side-container">
         <div class="side-1">
-            <img id="user"src="assets/user-profile.png">
+            <img id="user"src="<?php echo base_url()?>assets/user-profile.png">
             <div class='inner-details'>
             <span>New User?<a href="#">SignUp</a></span>
             <p>Create an account to submit tickets, read articles and engage in our community.</p>  
             </div>
         </div>
         <div class="side-1">
-            <img id="user"src="assets/lock.png">
+            <img id="user"src="<?php echo base_url()?>assets/lock.png">
             <div class='inner-details'>
             <span>Forget Password?<a href="#">Reset</a></span>
             <p>We will send a password reset link to your email address.</p>  
             </div>
         </div>
         <div class="side-1">
-            <img id="user"src="assets/agent.png">
+            <img id="user"src="<?php echo base_url()?>assets/agent.png">
             <div class='inner-details'>
             <span>Are you an Agent?<a href="#">Login Here</a></span>
             <p>You will be taken to the agent interface.</p>  

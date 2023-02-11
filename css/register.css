@@ -12,14 +12,11 @@
 /*    justify-content: flex-start;*/
     flex-direction: column;
     width:60%;
-    border:1px solid rgb(94, 94, 94);
+
     border-radius:10px;
     padding:10px 12px;
     background-color:#ffffff;
-    /* box-shadow: 3px 3px 5px 6px #8c8cf0; */
-    /* box-shadow: 8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25); */
-   box-shadow:12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset,
-   -8px -8px 12px 0 rgba(0, 0, 0, .25) inset;
+ 
 }
 
 .register-box h3{
@@ -28,26 +25,36 @@
 }
 .register-box  input[type="text"]
 {
-      display: block;
-    width: 100%;
-    padding:6px 4px;
+  display: block;
+    margin-top:10px;
+/*    height: 35%;*/
+    border: 1px solid #D6D6D6;
     border-radius: 5px;
+    padding: 5px;
+    width: 400px !important;
+    min-height: 40px !important;
 }
 .register-box input[type="email"]{
-    margin-top: 10px;
-    display: block;
-    width: 100%;
-    padding:6px 4px;
+   display: block;
+    margin-top:10px;
+/*    height: 35%;*/
+    border: 1px solid #D6D6D6;
     border-radius: 5px;
+    padding: 5px;
+    width: 400px !important;
+    min-height: 40px !important;
     
 }
 .register-box input[type="password"]
 {
-    margin-top: 10px;
     display: block;
-    width: 100%;
-    padding:6px 4px;
+    margin-top:10px;
+/*    height: 35%;*/
+    border: 1px solid #D6D6D6;
     border-radius: 5px;
+    padding: 5px;
+    width: 400px !important;
+    min-height: 40px !important;
 }
 
 .register-box #rg-button{

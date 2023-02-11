@@ -81,6 +81,7 @@ body{
     position: relative;
     min-width: 400px;
     margin-left: 70px;
+
 /*    border:2px solid black;*/
     border-radius:10px;
     flex-direction: column;
@@ -96,10 +97,17 @@ body{
 {   
 /*    border: 1px solid red;*/
     width: 75%;
-    min-height: 250px;
+    min-height:auto;
     display: flex;
     flex-direction: column;
     
+}
+.login-container .feild-msg1{
+        margin: -10px 0 20px !important;
+            font-size: 11px;
+    width: 360px;
+    display: block;
+    color:red;
 }
 .login-container .span1{
     font-weight: 600;
@@ -111,11 +119,13 @@ body{
 .login-container input[type="email"]{
     display: block;
     margin-top:10px;
-    height: 35%;
+/*    height: 35%;*/
     border: 1px solid #D6D6D6;
     border-radius: 5px;
     padding: 5px;
-    width: 400px;
+    width: 400px !important;
+/*    min-height: 2.8125rem !important;*/
+min-height: 40px !important;
     
     
 }
@@ -123,11 +133,12 @@ body{
 {
     display: block;
     margin-top:10px;
-    height: 35%;
+/*    height: 35%;*/
     border: 1px solid #D6D6D6;
     border-radius: 5px;
     padding: 5px;
-    width: 400px;
+    width: 400px !important;
+    min-height: 40px !important;
     
 }
 .login-container #lgn-button{
