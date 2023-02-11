@@ -4,7 +4,7 @@
             <!--  -->
             <?php echo validation_errors();?>
             <?php echo form_open_multipart('service/ticket_add');?>
-            <!-- <!-- <form id="ticketform" onsubmit="return myfunction()" autocomplete="off"method="post" enctype="multipart/form-data" action="? -->
+            <!--  <form id="ticketform" onsubmit="return myfunction()" autocomplete="off"method="post" enctype="multipart/form-data" action="? -->
             <?php if($this->session->flashdata('ticket-error')){?>
 <p style="color:red"><?php  echo $this->session->flashdata('ticket-error');?></p>  
 <?php } ?>     
