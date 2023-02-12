@@ -47,16 +47,7 @@
     
     
     }
-    // public function ticket_download()
-    // {
-        
-    //      // load download helder
-    // $this->load->helper('download');
-
-    // // read file contents
-    // $data = file_get_contents(base_url('/uploads/'.$filename));
-    // force_download($filename, $data);
-    // }
+  
     public function logout()
     {
         $this->session->unset_userdata('isloggedIn');
