@@ -1,22 +1,22 @@
- <div class='container'>
+ <div class='container' ng-controller="ticketController" ng-init="tickets()">
  <div class="main-div">
 <div class="ticket_portal">
-            <h2>Add a Ticket</h2>
-            <?php echo form_open_multipart('service/ticket_add');?>
-            <?php if($this->session->flashdata('ticket-error')){?>
-<p style="color:red"><?php  echo $this->session->flashdata('ticket-error');?></p>  
+            <h2>Add a Ticket</cmd
+<?php if($this->session->flashdata('ticket-error')){?>
+    <p><?php  echo $this->session->flashdata('ticket-error');?></p>  
 <?php } ?>     
- <?php echo form_error('ticket-title');?>
-                        <input type="text" id="title" placeholder="Title "name="ticket-title"  /><br/>
-                         <?php echo form_error('ticket-detail');?>
-                        <!-- <label for="#desc">Description</label> -->
-                        <textarea id="ticket-detail"   placeholder="Description" name="ticket-detail"   rows="1"cols="30"maxlength="255"></textarea>
-                        <label for="#myfile">Attachment</label>
-                        <input type="file" id="attachment" name="attachment">
-                        <button id="btn" name="form-submit" >Submit</button>
+ <form name="myform" ng-submit="ticketadd()" >
+ <span ng-show="myForm.ticket-title.$error.required">Title is required.</span>
+                        <input type="text"  id="title" placeholder="Title"name="ticket-title" ng-model="tickettitle" /><br/>
+                        <textarea id="ticket-detail"    placeholder="Description" name="ticket-detail" ng-model="ticketdetail"  rows="1"cols="30"maxlength="255"></textarea>
+                        <!-- <label for="#file">Attachment</label>
+                        <input type='file' name='file' file-model='myFile' id='file'><br/> -->
+                        <!-- <input type="file" id="attachment" name="attachment" > -->
+                        <input type ="submit" id="btn" name="form-submit1" value="submit" ng-click="ticketadd()">
+</form>
 </div>
 </div>
-<div class="tabular-data">
+<div class="tabular-data"ng-show="present">
    <table class="styled-table1">
     <thead>
         <tr>
@@ -27,82 +27,14 @@
         </tr>
     </thead>
     <tbody>
-       <?php if($tickets){?>
-       <?php foreach($tickets as $ticket):?>
-        <tr>
-            <td><?php echo $ticket['ticketid'] ?></td>
-            <td><?php echo $ticket['title']?></td>
-            <td><?php echo $ticket['t_status']?></td> 
+        <tr ng-repeat='ticket in tickets'>
+            <td>{{ ticket.ticketid }}</td>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.t_status }}</td> 
             <td><a href='service/view_details'>View Details</a></td>           
         </tr>
-    <?php endforeach ?>
-    <?php
-}else {
-?>
-<?php 
-
-    ?>
-            <tr>
-            <td>NO tickets submitted</td>           
-        </tr>
-    <?php
-     } 
-     ?>
+        <tr >
     </tbody>
 </table>
 </div>
 </div>
-
-<!-- <div id="modal">
-            <div class="modal-content">
-                <h1>Here's What we Got!</h1> -->
-            <!-- <p id="text"></p> -->
-            <!-- <p id ="details"></p> -->
-            <!-- <p id="json-details"></p> -->
-            <!-- <<p id="asawait-demo"></p> --> 
-          <!--   </div> 
-        </div>
-    </div> 
-   <script> -->
-      <!--  var modal=document.getElementById("modal");
-    //     var btn=document.getElementById("btn");
-    //     var title=document.getElementById("title");
-    //     var desc=document.getElementById("ticket-detail");
-        
-   
-    //     function myfunction(){
-            
-    //         if(title.value=="" && desc.value=="")
-    //         {
-    //             alert("form cannot be empty");
-    //         }
-    //         else if(title.value=="" )
-    //         {
-    //             alert("title cannot be empty");
-    //         }
-    //         else if(desc.value=="")
-    //         {
-    //             alert("desc cannot be empty");
-    //         }
-    //         else{
-               
-    //         modal.style.display="flex";
-            
-    //       let out1= title.value;
-    //       let out2=desc.value;
-          
-    //       document.getElementById('text').innerHTML=out1;
-    //     document.getElementById('details').innerHTML=out2;
-        
-    //     window.onclick=function(event){
-    //         if(event.target==modal){
-    //             modal.style.display="none";
-               
-    //         }
-        
-           
-    //         }
-    //     }
-    // } -->
-    
-    <!-- </script>   --> 

@@ -6,19 +6,16 @@
     </div>
     <div class="register-box">
         <h3>Lets SignUp Quickly!</h3>
-         <?php if($this->session->flashdata('reg-failed')){?>
-<p style="color:green"><?php  echo $this->session->flashdata('reg-failed');?></p>  
-<?php } ?>
-        <?php  //echo validation_errors();?>
-            <?php echo form_open('service/registerUser')?>
-        <?php echo form_error('name')?>
-        <input type="text" id="name" name="name" placeholder="Enter your Name"/>
-         <?php echo form_error('email')?>
-        <input type="email" id="email" name="email" placeholder="Enter your Email Address"/>
-         <?php echo form_error('pass')?>
-        <input type="password" id="pass" name="pass" placeholder="Enter your Password"/>
-        <input type="password" id="cpass" name="cpass" placeholder="Confirm your Password"/>
-        <button id="rg-button" name='submit-form' value='submit'>Register</button>
+        <span>{{message}}</span>
+        <form name="myForm" ng-controller="registerController" ng-submit="registerUser()" >
+        <input type="text" id="name" name="name" ng-model="name" placeholder="Enter your Name"/>
+       
+        <input type="email" id="email" name="email"  ng-model="email"placeholder="Enter your Email Address"/>
+         <?php //echo form_error('pass')?>
+        <input type="password" id="pass" name="pass" ng-model="pass"placeholder="Enter your Password"/>
+        <span style="color:red"ng-show="error">Both Password doesnt match</span>
+        <input type="password" id="cpass" name="cpass" ng-model="cpass" placeholder="Confirm your Password"/>
+        <button id="rg-button" name='submit-form3' value='submit'>Register</button>
     </form>
     </div>
  </div>

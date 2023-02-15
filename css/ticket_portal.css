@@ -126,8 +126,11 @@ min-height: 120px !important;
         width:100%;
 
     }
-    .main-div input[type="text"]{
-        width:100%;
+    .ticket_portal{
+        width:75%;
+    }
+    .ticket_portal input[type="text"]{
+        width:65% !important;
         height:20px;
     }
     .main-div input[type="textarea"]

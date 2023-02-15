@@ -1,10 +1,6 @@
-<?php
-	// var_dump($all_tickets);
-?>
 
-<div class=container>
-
-<table class="styled-table2">
+<div class=container ng-controller="adminController">
+<table class="styled-table2" ng-init="alltickets()">
     <thead>
         <tr>
             <th>Ticketid</th>
@@ -13,13 +9,10 @@
         </tr>
     </thead>
     <tbody>
-    	<?php //var_dump($all_tickets); 
-    	foreach($all_tickets as $ticket):?>
-        <tr>
-            <td><?php echo $ticket['ticketid'] ?></td>
-            <td><?php echo $ticket['title']?></td>
-			<td><?php echo $ticket['t_status']?></td>            
-        </tr>
-    <?php endforeach ?>
+        <tr ng-repeat="ticket in alltickets">
+            <td>{{ticket.ticketid}}</td>
+            <td>{{ticket.title}}</td>
+			<td>{{ticket.t_status}}</td>            
+        </tr>   
     </tbody>
 </table>

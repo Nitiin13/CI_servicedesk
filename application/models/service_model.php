@@ -11,7 +11,7 @@ class Service_model extends CI_Model{
 		$data=array(
 			'name'=>$name,
 			'email'=>$email,
-			'password'=>$pass);
+			'password'=>md5($pass));
 		$query=$this->db->insert('users',$data);
 		if($query)
 		{	
@@ -123,4 +123,3 @@ class Service_model extends CI_Model{
 	}
 	}
 }
-?>

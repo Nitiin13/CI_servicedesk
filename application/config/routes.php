@@ -40,6 +40,8 @@
 */
 $route['service']='service';
 $route['service/admin_portal']='service/admin_portal';
+$route['service/usertickets']='service/usertickets';
+$route['service/admin_view_tickets']='service/admin_view_tickets';
 // $route['service/login']='service/login';
 $route['service/register']='service/register';
 $route['service/registerUser']='service/registerUser';
