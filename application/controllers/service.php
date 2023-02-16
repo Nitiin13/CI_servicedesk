@@ -95,7 +95,7 @@
             }
             else
             {
-                echo "failed";
+                echo false;
 
             }
            

@@ -1,15 +1,34 @@
 var app=angular.module('myApp',[]);
+// var compareTo = function () {
+//     return {
+//         require: "ngModel",
+//         scope: {
+//             otherModelValue: "=compareTo"
+//         },
+//         link: function (scope, element, attributes, ngModel) {
+//             ngModel.$validators.compareTo = function (modelValue) {
+//                 return modelValue == scope.otherModelValue;
+//             };
+
+//             scope.$watch("otherModelValue", function () {
+//                 ngModel.$validate();
+//             });
+//         }
+//     };
+// };
+
+// app.directive("compareTo", compareTo);
 
 app.controller('myController',function($scope,$http){
-    $scope.email=undefined;
-    $scope.password=undefined;
+    $scope.email='';
+    $scope.password='';
     console.log('called');
+    $scope.error=false;
     $scope.authenticate=function(){
-            if($scope.email==undefined || $scope.pass==undefined)
+            if($scope.email==undefined && $scope.email=='' || $scope.pass==undefined && $scope.pass=='')
             {
-                console.log('failed');
-            return false;
-          
+            $scope.error=true;
+            // return false;
         }
             else{
                 console.log('success');
@@ -21,11 +40,8 @@ app.controller('myController',function($scope,$http){
                     url:'service/authenticate',
                     headers:{'Content-Type':'application/www-form-urlencoded'},
                     data:$scope.info
-                }).then(function(response){
-                    
-                        
-                  if(response.data)
-                  { var role=response.data;
+                }).then(function(response){  
+                 var role=response.data;
                 console.log(role);
                 if(role=='admin')
                         {
@@ -34,12 +50,9 @@ app.controller('myController',function($scope,$http){
                         else{
                             location.replace("service/ticket_portal");
                         }
-            }
-                        
-                
                     
                 },function(response){
-                    $scope.Message="failed";
+                    $scope.message="failed";
                 });
             }
         }
@@ -47,6 +60,7 @@ app.controller('myController',function($scope,$http){
         $scope.tickettitle="";
         $scope.ticketdetail="";
        $scope.present=false;
+       $scope.errormessage=false;
         
         $scope.tickets=function()
         {
@@ -68,6 +82,13 @@ app.controller('myController',function($scope,$http){
         })
     }
     $scope.ticketadd=function(){
+        
+        if($scope.tickettitle=="" || $scope.tickettitle==""){
+            $scope.errormessage=true;
+            return false;
+           
+        }
+        else{
      data={
         title:$scope.tickettitle,
         desc:$scope.ticketdetail
@@ -87,6 +108,7 @@ app.controller('myController',function($scope,$http){
             
         })
     }
+}
     }).controller('adminController',function($scope,$http){
         
         $scope.alltickets=function()
@@ -150,7 +172,9 @@ app.controller('myController',function($scope,$http){
             headers:{'Content-Type':'application/json'},
         }).then(function(response){
             window.location.replace('service/register');
-        },function(response){})
+        },function(response){
+
+        })
         }
     });
     

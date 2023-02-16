@@ -12,15 +12,14 @@
         <span class="span1">Already a member?</span>
         <span class="span2">Sign In</span>
                         <form name="myForm" ng-submit="authenticate()"  >
-                        <h1>{{Message}}</h1>
-                        <span ng-show="myForm.email.$error.required">Email is required.</span>
-                        <p style="color:red; font-size:15px;" ng-show="myForm.email.$invalid"> Enter a valid email format</p>
+                        
+                        <span style="color:red; font-size:15px;" ng-if="myForm.email.$untouched && myForm.email.$error.required && myForm.pass.$untouched && myForm.pass.$error.required">Both fields required</span>
+                        <span style="color:red; font-size:15px;" ng-if="myForm.email.$dirty && myForm.email.$invalid"> Enter a valid email format</span>
                     <input type="email" id="email" ng-model="email" name="email" placeholder="Email Address" autocomplete="off" required />
-                    <?php //echo form_error('pass');?>
-                    <p style="color:red; font-size:15px;" ng-show="myForm.pass.$invalid"> Try a strong password</p>
-                    <input type="password" id="pass" name="pass" ng-model="pass" placeholder="Password"/>
+                    <p style="color:red; font-size:15px;" ng-if="myForm.pass.$dirty && myForm.pass.$invalid"> Password length should be atleast 8 characters</p>
+                    <input type="password" id="pass" name="pass" ng-model="pass" placeholder="Password" minLength="8" required/>
                     <input type="submit" id="lgn-button" name='submit-form' value='SignIn'
-                    ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+                    ng-disabled="myForm.pass.$dirty && myForm.pass.$invalid ||
   myForm.email.$dirty && myForm.email.$invalid" />
                 </form>
 </div>

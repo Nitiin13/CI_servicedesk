@@ -1,18 +1,20 @@
  <div class='container' ng-controller="ticketController" ng-init="tickets()">
  <div class="main-div">
 <div class="ticket_portal">
-            <h2>Add a Ticket</cmd
+            <h2>Add a Ticket</h2>
 <?php if($this->session->flashdata('ticket-error')){?>
     <p><?php  echo $this->session->flashdata('ticket-error');?></p>  
 <?php } ?>     
- <form name="myform" ng-submit="ticketadd()" >
- <span ng-show="myForm.ticket-title.$error.required">Title is required.</span>
-                        <input type="text"  id="title" placeholder="Title"name="ticket-title" ng-model="tickettitle" /><br/>
-                        <textarea id="ticket-detail"    placeholder="Description" name="ticket-detail" ng-model="ticketdetail"  rows="1"cols="30"maxlength="255"></textarea>
+ <form name="myform4" ng-submit="ticketadd()" >
+    <span style="color:red" ng-if="errormessage">All fields are Requried</span>
+ <span style="color:red"ng-if="myform4.tickettitle.$dirty">Title is required.</span>
+ <span style="color:red"ng-if="myform4.ticketdetail.$dirty && my">details is required.</span>
+                        <input type="text"  id="title" placeholder="Title"name="tickettitle" ng-model="tickettitle" /><br/>
+                        <textarea id="ticket-detail"    placeholder="Description" name="ticketdetail" ng-model="ticketdetail"  rows="1"cols="30"maxlength="255"></textarea>
                         <!-- <label for="#file">Attachment</label>
                         <input type='file' name='file' file-model='myFile' id='file'><br/> -->
                         <!-- <input type="file" id="attachment" name="attachment" > -->
-                        <input type ="submit" id="btn" name="form-submit1" value="submit" ng-click="ticketadd()">
+                        <input type ="submit" id="btn" name="form-submit4" value="submit"  ng-click="ticketadd()">
 </form>
 </div>
 </div>
