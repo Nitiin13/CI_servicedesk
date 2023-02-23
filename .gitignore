@@ -9,3 +9,4 @@ application/logs/*
 !application/logs/.htaccess
 
 application/helpers/custom_email_helper.php
+application/config/development
