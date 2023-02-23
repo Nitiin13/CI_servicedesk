@@ -240,7 +240,10 @@ class CI_Hooks {
 		$this->in_progress = FALSE;
 		return TRUE;
 	}
-
+	function add_hook($which, $hook_details){
+		if(!isset($this->hooks[$which])) $this->hooks[$which]=[];
+		$this->hooks[$which][] = $hook_details;
+	}
 }
 
 // END CI_Hooks class

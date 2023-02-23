@@ -10,7 +10,7 @@
 |
 */
 
-
+$hook['post_controller'] = [];
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */

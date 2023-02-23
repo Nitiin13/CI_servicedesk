@@ -59,6 +59,7 @@ app.controller('myController',function($scope,$http){
     }).controller('ticketController',function($scope,$http){
         $scope.tickettitle="";
         $scope.ticketdetail="";
+        $scope.keydetails="";
        $scope.present=false;
        $scope.errormessage=false;
         
@@ -74,7 +75,7 @@ app.controller('myController',function($scope,$http){
         }).then(function(response){
             if(response.data){
             $scope.present='true';
-            console.log(response.data);
+            // console.log(response.data);
            $scope.tickets=response.data;
             }
         },function(response){
@@ -86,14 +87,16 @@ app.controller('myController',function($scope,$http){
         if($scope.tickettitle=="" || $scope.tickettitle==""){
             $scope.errormessage=true;
             return false;
-           
         }
         else{
+            
      data={
         title:$scope.tickettitle,
-        desc:$scope.ticketdetail
+        desc:$scope.ticketdetail,
+        key:$scope.keydetails
      }
-
+     console.log(data);
+    
         $http({
             method:'POST',
             url:'service/ticket_add',
@@ -102,7 +105,7 @@ app.controller('myController',function($scope,$http){
         }).then(function(response){
             if(response.data==1)
             {
-                console.log('inserted');
+                location.reload();
             }
         },function(response){
             

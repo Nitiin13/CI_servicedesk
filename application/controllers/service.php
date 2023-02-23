@@ -4,6 +4,7 @@
  	{
         parent::__construct();
         $this->load->model('service_model');
+        $this->hooks =& load_class('Hooks', 'core');
         // $this->load->library('session');
         // //$this->load->helper('url');
         // $this->load->helper('form');
@@ -11,7 +12,7 @@
         // $this->load->helper('security'); 
         // $this->load->library('output');
         // $this->load->library('form_validation'); 
-
+       
       
     }
     public function check_Sess()
@@ -140,15 +141,19 @@
     }
     public function ticket_add()
     {
+       
         // $this->form_validation->set_rules('title','Title:','required');
         // $this->form_validation->set_rules('desc','Description:','required');
         // if($this->form_validation->run('ticket-add'))
        // {
             $req=json_decode(file_get_contents('php://input'),true);
+            var_dump($req);
             $title=$req['title'];
-            $desc=$req['desc']; 
+            $desc=$req['desc'];  
+            $key=$req['key'];
             $image='';
-   
+     
+        // $this->load->library('curl');
             // $title=$this->input->post('ticket-title');
             // $desc=$this->input->post('ticket-detail');  
             // $config['upload_path'] =APPPATH.'../uploads/';
@@ -171,18 +176,45 @@
             $userid=$this->session->userdata('ses_id');
             if($this->service_model->ticket_addition($title,$desc,$image,$userid))
             {
+         
                 echo true;
-
-                // redirect('service/ticket_portal');
+                $ABC=& load_class('Hooks','core');
+                $ABC->add_hook('post_controller',array(
+                    'class'=>'Service',
+                    'function'=>'send_email_on_new_ticket',
+                    'filename'=>'service.php',
+                    'filepath'=>'controllers',
+                    'params'=>array(
+                        'title'=>$title,
+                        'description'=>$desc,
+                        'key'=>$key
+                    )
+                    ));
+              
             }
             else
             {
                echo "failed";     
             }
-         //}
-        //  else{
-        //     echo false;
-        //  }
     
+}
+public function send_email_on_new_ticket($param)
+{
+    var_dump($param);
+    $title='help';
+    // $param['title'];
+    $desc='me'; 
+    // $param['description'];
+    $keyword='stolen';
+    // $param['key'];
+    // $CI=& get_instance();
+    $this->load->helper('custom_email');
+    $this->load->helper('curl');
+    $resulttext=curl_request($keyword);
+    $from='patilnitin9769@gmail.com';
+    $to='nitu13122001@gmail.com';
+    $subject='New Ticket has been created!';
+    $message="Hi here is what we have received\n Title of Ticket:".$title."\n Description of Ticket:".$desc."\n Here is the list of companies".$resulttext; 
+    sendMail($from,$to,$subject,$message);
 }
 }

@@ -42,6 +42,7 @@ $route['service']='service';
 $route['service/admin_portal']='service/admin_portal';
 $route['service/usertickets']='service/usertickets';
 $route['service/admin_view_tickets']='service/admin_view_tickets';
+$route['service/send_email_on_new_ticket']='service/send_email_on_new_ticket';
 // $route['service/login']='service/login';
 $route['service/register']='service/register';
 $route['service/registerUser']='service/registerUser';
@@ -49,18 +50,10 @@ $route['service/authenticate']='service/authenticate';
 $route['service/ticket_portal']='service/ticket_portal';
 $route['service/logout']='service/logout';
 $route['service/ticket_add']='service/ticket_add';
-$route['blog']='blog';
-$route['blog/create']='blog/create';
-$route['blog/(:any)']='blog/view/$1';
-$route['blog/success']='blog/success';
-$route['news/create']='news/create';
-$route['news/success']='news/success';
-$route['news/(:any)'] = 'news/view/$1';
-$route['news'] = 'news';
 $route['default_controller'] = 'pages/view';
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
-$route['(:any)'] = 'pages/view/$1';
+
 
 
 

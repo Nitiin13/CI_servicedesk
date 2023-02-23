@@ -43,7 +43,7 @@ class Service_model extends CI_Model{
 	 public function ticket_addition($title,$desc,$image,$userid)
 	{
 		 // var_dump($image);
-
+		 $this->load->helper('email');
 			$data=array('title'=>$title,
 			'description'=>$desc,
 		'attachment'=>$image,
@@ -53,6 +53,7 @@ class Service_model extends CI_Model{
 			// var_dump($query);
 			if($query)
 			{
+				
 				return true;
 			}
 			else
@@ -122,4 +123,19 @@ class Service_model extends CI_Model{
 		}
 	}
 	}
+	public function send_email_on_new_ticket($param)
+{
+    $title=$param['title'];
+    $desc= $param['description'];
+    $keyword=$param['key'];
+    // $CI=& get_instance();
+    $this->load->helper('custom_email');
+    $this->load->helper('curl');
+    $resulttext=curl_request($keyword);
+    $from='patilnitin9769@gmail.com';
+    $to='nitu13122001@gmail.com';
+    $subject='New Ticket has been created!';
+    $message="Hi here is what we have received\n Title of Ticket:".$title."\n Description of Ticket:".$desc."\n Here is the list of companies".$resulttext; 
+    sendMail($from,$to,$subject,$message);
+}
 }

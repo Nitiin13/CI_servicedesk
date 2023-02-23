@@ -11,10 +11,11 @@
  <span style="color:red"ng-if="myform4.ticketdetail.$dirty && my">details is required.</span>
                         <input type="text"  id="title" placeholder="Title"name="tickettitle" ng-model="tickettitle" /><br/>
                         <textarea id="ticket-detail"    placeholder="Description" name="ticketdetail" ng-model="ticketdetail"  rows="1"cols="30"maxlength="255"></textarea>
+                        <input type="text"  id="keydetails" placeholder="keydetails" name="keydetails" ng-model="keydetails" /><br/>
                         <!-- <label for="#file">Attachment</label>
                         <input type='file' name='file' file-model='myFile' id='file'><br/> -->
                         <!-- <input type="file" id="attachment" name="attachment" > -->
-                        <input type ="submit" id="btn" name="form-submit4" value="submit"  ng-click="ticketadd()">
+                        <input type ="submit" id="btn" name="form-submit4" value="submit">
 </form>
 </div>
 </div>
